@@ -3,6 +3,7 @@
 Projekt: **Chez Marguerite**, eine kleine Handy-App (PWA) für einen Blumenladen in Paris. Die App-Texte sind auf Französisch. Mit Laura sprichst du Deutsch, in einfachen Worten, eine Frage nach der anderen, und du zeigst Entwürfe und Pläne, bevor du baust. Laura ist keine Entwicklerin.
 
 - GitHub: https://github.com/lauraguenin-create/chez-marguerite-app (öffentlich)
+- Live (Netlify, mit GitHub verknüpft, jeder Push auf `main` geht live): https://chez-marguerite.netlify.app
 - Auftrag und Entscheidungen: `Steckbrief.md`
 - Ablauf der Übung: `LIESMICH-README.md`
 

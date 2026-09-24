@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Entwurf Chez Marguerite</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --papier:#FAFAF6; --sauge:#E7EDE3; --sapin:#26332B; --gris:#5E6B62;
+    --souci:#E8A93A; --souci-texte:#8A5E0E; --ligne:#DCE3D8;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:#EEF0EA;font-family:'Jost',sans-serif;color:var(--sapin);
+       display:flex;gap:40px;justify-content:center;align-items:flex-start;padding:32px 16px;flex-wrap:wrap}
+  .note{max-width:300px;font-size:15px;line-height:1.6;color:#3a463e}
+  .note h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:28px;margin:0 0 8px}
+  .note li{margin-bottom:6px}
+  .phone{width:375px;background:var(--papier);border-radius:40px;border:10px solid #1d2420;overflow:hidden}
+  .scroll{height:780px;overflow-y:auto}
+  header{text-align:center;padding:34px 20px 18px}
+  .brand{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;margin:8px 0 0}
+  .tag{font-size:11px;letter-spacing:3px;color:var(--gris);margin-top:2px}
+  section{margin:14px 16px}
+  .card{border-radius:20px;padding:18px}
+  .sauge{background:var(--sauge)}
+  .blanc{background:#fff;border:1px solid var(--ligne)}
+  .kicker{font-size:10px;letter-spacing:2.5px;color:#4E6B55;font-weight:500}
+  h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:25px;margin:4px 0 6px;line-height:1.15}
+  h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:20px;margin:0 0 4px}
+  p{margin:0;font-size:14px;line-height:1.55;font-weight:300}
+  .prix{font-weight:500;font-size:15px;margin-top:8px}
+  .btn{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;
+       background:var(--sapin);color:#fff;border-radius:999px;padding:12px;font-size:12px;letter-spacing:1.5px;font-weight:500}
+  .btn.clair{background:#fff;color:var(--sapin);border:1px solid var(--sapin)}
+  .code{display:flex;justify-content:space-between;align-items:center;margin-top:12px;
+        border:1.5px dashed var(--souci);border-radius:14px;padding:10px 14px}
+  .code b{letter-spacing:2px;font-weight:500}
+  .code span{font-size:12px;color:var(--souci-texte);font-weight:500}
+  .meta{font-size:12px;color:var(--gris);margin-top:6px}
+  .row{display:flex;gap:8px;margin-top:10px}
+  .pill{flex:1;text-align:center;border-radius:14px;background:var(--papier);padding:10px 4px}
+  .pill b{display:block;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500}
+  .pill small{font-size:11px;color:var(--gris)}
+  .titre-section{font-family:'Cormorant Garamond',serif;font-size:22px;margin:24px 20px 4px;font-weight:500}
+  .date{float:left;width:52px;height:56px;border-radius:14px;background:var(--souci);color:#3b2a06;
+        text-align:center;margin-right:12px;padding-top:6px}
+  .date b{display:block;font-size:22px;line-height:1;font-weight:500}
+  .date small{font-size:10px;letter-spacing:1px}
+  .clear{clear:both}
+  footer{text-align:center;font-size:12px;color:var(--gris);padding:24px 20px 40px;line-height:1.7}
+</style>
+</head>
+<body>
+
+<div class="note">
+  <h1>Entwurf: Richtung C, abgerundet</h1>
+  <p style="font-size:15px;font-weight:400">So könnte die App auf dem Handy aussehen. Im Handy kannst du scrollen.</p>
+  <ul>
+    <li><b>Oben:</b> Margeriten-Logo als feine Linie</li>
+    <li><b>Strauß der Woche</b> mit Knopf „Réserver“ (öffnet E-Mail)</li>
+    <li><b>Offres:</b> Rabattcode zum Antippen und Kopieren</li>
+    <li><b>Ateliers:</b> Termin mit Knopf „Ajouter au calendrier“</li>
+    <li><b>Abonnement:</b> dein festes Angebot, drei Größen</li>
+    <li><b>Unten:</b> Adresse und Öffnungszeiten</li>
+  </ul>
+  <p style="font-size:13px;color:#5E6B62">Alle Texte, Preise und Adressen sind ausgedacht. Die Knöpfe funktionieren in diesem Entwurf noch nicht.</p>
+</div>
+
+<div class="phone"><div class="scroll">
+  <header>
+    <svg width="58" height="58" viewBox="0 0 40 40" fill="none" stroke="#26332B" stroke-width="0.7">
+      <g transform="translate(20 20)">
+        <ellipse rx="3" ry="8.2" cy="-10.5"/><ellipse rx="3" ry="8.2" cy="-10.5" transform="rotate(30)"/>
+        <ellipse rx="3" ry="8.2" cy="-10.5" transform="rotate(60)"/><ellipse rx="3" ry="8.2" cy="-10.5" transform="rotate(90)"/>
+        <ellipse rx="3" ry="8.2" cy="-10.5" transform="rotate(120)"/><ellipse rx="3" ry="8.2" cy="-10.5" transform="rotate(150)"/>
+        <ellipse rx="3" ry="8.2" cy="-10.5" transform="rotate(180)"/><ellipse rx="3" ry="8.2" cy="-10.5" transform="rotate(210)"/>
+        <ellipse rx="3" ry="8.2" cy="-10.5" transform="rotate(240)"/><ellipse rx="3" ry="8.2" cy="-10.5" transform="rotate(270)"/>
+        <ellipse rx="3" ry="8.2" cy="-10.5" transform="rotate(300)"/><ellipse rx="3" ry="8.2" cy="-10.5" transform="rotate(330)"/>
+        <circle r="3.6" fill="#E8A93A"/>
+      </g>
+    </svg>
+    <div class="brand">Chez Marguerite</div>
+    <div class="tag">FLEURISTE · PARIS 11E</div>
+  </header>
+
+  <section class="card sauge">
+    <div class="kicker">BOUQUET DE LA SEMAINE</div>
+    <h2>Le Jardin d'automne</h2>
+    <p>Dahlias, cosmos et graminées, noués à la main. Disponible jusqu'au dimanche 27 septembre.</p>
+    <div class="prix">38 €</div>
+    <div class="btn">✉︎ &nbsp;RÉSERVER CE BOUQUET</div>
+  </section>
+
+  <div class="titre-section">Offres</div>
+  <section class="card blanc">
+    <h3>−15 % sur les dahlias</h3>
+    <p>En boutique et à la réservation, jusqu'au 4 octobre.</p>
+    <div class="code"><b>DAHLIA15</b><span>Copier le code</span></div>
+  </section>
+
+  <div class="titre-section">Ateliers</div>
+  <section class="card blanc">
+    <div class="date"><b>17</b><small>OCT.</small></div>
+    <h3>Couronne d'automne</h3>
+    <p class="meta">Samedi · 10 h – 12 h · 45 € · 8 places</p>
+    <div class="clear"></div>
+    <div class="btn clair">＋ &nbsp;AJOUTER AU CALENDRIER</div>
+  </section>
+
+  <div class="titre-section">Abonnement</div>
+  <section class="card sauge">
+    <p>Un bouquet de saison livré chez vous ou au bureau, chaque semaine ou toutes les deux semaines.</p>
+    <div class="row">
+      <div class="pill"><small>Petit</small><b>29 €</b></div>
+      <div class="pill"><small>Moyen</small><b>39 €</b></div>
+      <div class="pill"><small>Grand</small><b>55 €</b></div>
+    </div>
+    <div class="btn">✉︎ &nbsp;S'ABONNER</div>
+  </section>
+
+  <footer>
+    24 rue de la Folie-Méricourt, 75011 Paris<br>
+    Mar – Sam 9 h 30 – 19 h 30 · Dim 9 h – 13 h<br>
+    bonjour@chez-marguerite.example
+  </footer>
+</div></div>
+
+</body>
+</html>
