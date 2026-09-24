@@ -11,13 +11,8 @@
     --souci:#E8A93A; --souci-texte:#8A5E0E; --ligne:#DCE3D8;
   }
   *{box-sizing:border-box}
-  body{margin:0;background:#EEF0EA;font-family:'Jost',sans-serif;color:var(--sapin);
-       display:flex;gap:40px;justify-content:center;align-items:flex-start;padding:32px 16px;flex-wrap:wrap}
-  .note{max-width:300px;font-size:15px;line-height:1.6;color:#3a463e}
-  .note h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:28px;margin:0 0 8px}
-  .note li{margin-bottom:6px}
-  .phone{width:375px;background:var(--papier);border-radius:40px;border:10px solid #1d2420;overflow:hidden}
-  .scroll{height:780px;overflow-y:auto}
+  body{margin:0;background:var(--papier);font-family:'Jost',sans-serif;color:var(--sapin)}
+  .phone{max-width:480px;margin:0 auto}
   header{text-align:center;padding:34px 20px 18px}
   .brand{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;margin:8px 0 0}
   .tag{font-size:11px;letter-spacing:3px;color:var(--gris);margin-top:2px}
@@ -53,21 +48,8 @@
 </head>
 <body>
 
-<div class="note">
-  <h1>Entwurf: Richtung C, abgerundet</h1>
-  <p style="font-size:15px;font-weight:400">So könnte die App auf dem Handy aussehen. Im Handy kannst du scrollen.</p>
-  <ul>
-    <li><b>Oben:</b> Margeriten-Logo als feine Linie</li>
-    <li><b>Strauß der Woche</b> mit Knopf „Réserver“ (öffnet E-Mail)</li>
-    <li><b>Offres:</b> Rabattcode zum Antippen und Kopieren</li>
-    <li><b>Ateliers:</b> Termin mit Knopf „Ajouter au calendrier“</li>
-    <li><b>Abonnement:</b> dein festes Angebot, drei Größen</li>
-    <li><b>Unten:</b> Adresse und Öffnungszeiten</li>
-  </ul>
-  <p style="font-size:13px;color:#5E6B62">Alle Texte, Preise und Adressen sind ausgedacht. Die Knöpfe funktionieren in diesem Entwurf noch nicht.</p>
-</div>
 
-<div class="phone"><div class="scroll">
+<div class="phone">
   <header>
     <svg width="58" height="58" viewBox="0 0 40 40" fill="none" stroke="#26332B" stroke-width="0.7">
       <g transform="translate(20 20)">
@@ -124,7 +106,7 @@
     Mar – Sam 9 h 30 – 19 h 30 · Dim 9 h – 13 h<br>
     bonjour@chez-marguerite.example
   </footer>
-</div></div>
+</div>
 
 </body>
 </html>
