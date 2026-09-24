@@ -1,0 +1,16 @@
+{
+  "name": "Chez Marguerite",
+  "short_name": "Marguerite",
+  "description": "Fleuriste à Paris 11e : bouquet de la semaine, offres et ateliers.",
+  "lang": "fr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FAFAF6",
+  "theme_color": "#26332B",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
