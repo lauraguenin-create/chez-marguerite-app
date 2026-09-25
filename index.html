@@ -38,12 +38,8 @@
   .btn.clair{background:#fff;color:var(--sapin);border:1px solid var(--sapin)}
   .code{display:flex;justify-content:space-between;align-items:center;margin-top:12px;
         border:1.5px dashed var(--souci);border-radius:14px;padding:10px 14px}
-  button.code{width:100%;background:none;font-family:inherit;cursor:pointer;text-align:left}
   .code b{letter-spacing:2px;font-weight:500}
   .code span{font-size:12px;color:var(--souci-texte);font-weight:500}
-  a{color:var(--sapin)}
-  a.btn{text-decoration:none}
-  footer a{color:var(--gris)}
   .meta{font-size:12px;color:var(--gris);margin-top:6px}
   .row{display:flex;gap:8px;margin-top:10px}
   .pill{flex:1;text-align:center;border-radius:14px;background:var(--papier);padding:10px 4px}
@@ -105,8 +101,6 @@
       <input id="resa-jour" name="jour_retrait" type="date" required>
       <label for="resa-message">MESSAGE <small>(facultatif)</small></label>
       <textarea id="resa-message" name="message" maxlength="500"></textarea>
-      <p class="meta">Paiement sur place, à la récupération en boutique. Ce bouquet est à retirer à la boutique (pas de livraison). Besoin de modifier ou d'annuler ? Écrivez-nous à bonjour@chez-marguerite.example.</p>
-      <p class="meta">En envoyant ce formulaire, vos informations sont utilisées uniquement pour préparer votre réservation. <a href="/mentions-legales.html#donnees">En savoir plus</a>.</p>
       <button type="submit" class="btn">RÉSERVER</button>
     </form>
     <p class="resa-status" id="resa-status" role="status" hidden></p>
@@ -116,7 +110,7 @@
   <section class="card blanc" data-jusquau="2026-09-27">
     <h3>−10 % sur les roses</h3>
     <p>En boutique et à la réservation, jusqu'au dimanche 27 septembre.</p>
-    <button type="button" class="code" id="code-copy" data-code="ROSE10"><b>ROSE10</b><span>Copier le code</span></button>
+    <div class="code"><b>ROSE10</b><span>Copier le code</span></div>
   </section>
 
   <div class="titre-section">Ateliers</div>
@@ -125,11 +119,7 @@
     <h3>Couronne d'automne</h3>
     <p class="meta">Samedi · 10 h – 12 h · 45 € · 8 places</p>
     <div class="clear"></div>
-    <button type="button" class="btn clair" id="atelier-ics"
-      data-title="Couronne d'automne"
-      data-start="2026-10-17T10:00:00"
-      data-end="2026-10-17T12:00:00"
-      data-location="Chez Marguerite, 24 rue de la Folie-Méricourt, 75011 Paris">＋ &nbsp;AJOUTER AU CALENDRIER</button>
+    <div class="btn clair">＋ &nbsp;AJOUTER AU CALENDRIER</div>
   </section>
 
   <div class="titre-section">Abonnement</div>
@@ -140,14 +130,13 @@
       <div class="pill"><small>Moyen</small><b>39 €</b></div>
       <div class="pill"><small>Grand</small><b>55 €</b></div>
     </div>
-    <a class="btn" href="mailto:bonjour@chez-marguerite.example?subject=Abonnement%20Chez%20Marguerite&body=Bonjour%2C%0A%0AJe%20souhaite%20m%27abonner%20(Petit%20%2F%20Moyen%20%2F%20Grand).%0A%0AMerci%20!">✉︎ &nbsp;S'ABONNER</a>
+    <div class="btn">✉︎ &nbsp;S'ABONNER</div>
   </section>
 
   <footer>
     24 rue de la Folie-Méricourt, 75011 Paris<br>
     Mar – Sam 9 h 30 – 19 h 30 · Dim 9 h – 13 h<br>
-    bonjour@chez-marguerite.example<br>
-    <a href="/mentions-legales.html">Mentions légales &amp; confidentialité</a>
+    bonjour@chez-marguerite.example
   </footer>
 </div>
 
@@ -161,6 +150,5 @@
   });
 </script>
 <script src="/js/reservation.js"></script>
-<script src="/js/actions.js"></script>
 </body>
 </html>
