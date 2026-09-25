@@ -51,6 +51,18 @@
   .date b{display:block;font-size:22px;line-height:1;font-weight:500}
   .date small{font-size:10px;letter-spacing:1px}
   .clear{clear:both}
+  button.btn{width:100%;border:0;font-family:inherit;cursor:pointer}
+  button.btn:disabled{opacity:.6;cursor:default}
+  .resa{margin-top:14px}
+  .resa label{display:block;font-size:11px;letter-spacing:1.5px;color:#4E6B55;font-weight:500;margin:12px 0 4px}
+  .resa label small{letter-spacing:0;font-weight:300;color:var(--gris)}
+  .resa input,.resa textarea{width:100%;border:1px solid var(--ligne);border-radius:12px;background:#fff;
+       padding:10px 12px;font-family:inherit;font-size:16px;font-weight:300;color:var(--sapin)}
+  .resa input:focus,.resa textarea:focus{outline:2px solid var(--sapin);outline-offset:1px}
+  .resa textarea{resize:vertical;min-height:64px}
+  .resa-status{margin-top:12px;border-radius:14px;padding:10px 14px;font-size:14px;line-height:1.5}
+  .resa-status.ok{background:#fff;border:1px solid var(--ligne)}
+  .resa-status.erreur{background:#fff;border:1.5px dashed var(--souci);color:var(--souci-texte)}
   footer{text-align:center;font-size:12px;color:var(--gris);padding:24px 20px 40px;line-height:1.7}
 </style>
 </head>
@@ -79,7 +91,19 @@
     <h2>Douceur d'octobre</h2>
     <p>Roses anciennes, chrysanthèmes, eucalyptus et baies d'hypericum, dans des tons rose poudré et cuivre. Disponible jusqu'au dimanche 4 octobre.</p>
     <div class="prix">42 €</div>
-    <div class="btn">✉︎ &nbsp;RÉSERVER CE BOUQUET</div>
+    <button type="button" class="btn" id="resa-toggle" aria-expanded="false" aria-controls="resa-form">✉︎ &nbsp;RÉSERVER CE BOUQUET</button>
+    <form class="resa" id="resa-form" hidden novalidate>
+      <label for="resa-nom">NOM</label>
+      <input id="resa-nom" name="nom" autocomplete="name" required maxlength="100">
+      <label for="resa-contact">E-MAIL OU TÉLÉPHONE</label>
+      <input id="resa-contact" name="contact" required minlength="3" maxlength="150">
+      <label for="resa-jour">JOUR DE RETRAIT</label>
+      <input id="resa-jour" name="jour_retrait" type="date" required>
+      <label for="resa-message">MESSAGE <small>(facultatif)</small></label>
+      <textarea id="resa-message" name="message" maxlength="500"></textarea>
+      <button type="submit" class="btn">RÉSERVER</button>
+    </form>
+    <p class="resa-status" id="resa-status" role="status" hidden></p>
   </section>
 
   <div class="titre-section" data-jusquau="2026-09-27">Offres</div>
@@ -125,5 +149,6 @@
     if (new Date() >= fin) el.style.display = 'none';
   });
 </script>
+<script src="/js/reservation.js"></script>
 </body>
 </html>

@@ -32,10 +32,11 @@ Diese Datei ist so geschrieben, dass eine neue Session alles Nötige hier im Rep
 ## Regeln für die App
 
 - **Inhalte bleiben in Dateien, die man ohne Code bearbeiten kann** (`contenu.md` oft, `boutique.md` selten). Die App liest sie beim Öffnen und schreibt nichts davon fest in den Code. Wenn Laura etwas ändert und pusht, sehen es alle.
-- **Keine Datenbank, keine Logins, kein Bau-Schritt, keine Bibliotheken.** Reines HTML, CSS und JavaScript. Die einzige externe Quelle sind Google Fonts (Cormorant Garamond, Jost).
+- **Keine Logins, kein Bau-Schritt, keine Bibliotheken.** Reines HTML, CSS und JavaScript. Externe Quellen sind nur Google Fonts (Cormorant Garamond, Jost) und Supabase.
+- **Supabase nur für Reservierungen** (seit 25.09.2026, Lauras Wunsch): Projekt `pqunesojvlamgyhgwhqc`, Tabelle `reservations`, Aufbau in `supabase/reservations.sql`. Besucher dürfen nur eintragen, nie lesen. `js/reservation.js` schickt das Formular mit `fetch` (kein Supabase-Paket). Laura sieht die Reservierungen im Supabase-Dashboard, siehe `RESERVIERUNGEN.md`.
 - **Updates dürfen nicht im Cache hängen bleiben.** Der Service Worker holt immer zuerst aus dem Netz und nimmt die Kopie nur offline. HTML und Inhalte werden nie dauerhaft zuerst aus dem Zwischenspeicher geliefert. `netlify.toml` setzt `Cache-Control: no-cache`.
 - **Installierbar** auf iPhone (Safari → „Zum Home-Bildschirm“) und Android (Chrome → „App installieren“): `manifest.webmanifest`, `icon-192.png`, `icon-512.png`, `apple-touch-icon.png`. Start ohne Browserleiste.
-- **Zum Antippen:** Rabattcode kopieren, Atelier in den Kalender, Strauß per E-Mail reservieren.
+- **Zum Antippen:** Rabattcode kopieren, Atelier in den Kalender, Strauß über das Formular reservieren (E-Mail bleibt als Ersatz, wenn das Senden scheitert).
 - Design „Jardin“: Farben, Schriften und Aufbau stehen im Design-Dokument, Abschnitt 3.
 
 ## Testen
