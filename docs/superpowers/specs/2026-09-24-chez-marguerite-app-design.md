@@ -16,7 +16,8 @@ Eine kleine App fürs Handy für die Kundschaft von **Chez Marguerite**, einem (
 ## 2. Rahmen
 
 - **Sprache:** alle Texte in der App auf Französisch, Gespräch mit Laura auf Deutsch
-- **Keine Datenbank, keine Logins, kein Bau-Schritt.** Statische Dateien, Netlify liefert den Projektordner direkt aus (Publish directory = Projektwurzel).
+- **Keine Logins, kein Bau-Schritt.** Statische Dateien, Netlify liefert den Projektordner direkt aus (Publish directory = Projektwurzel).
+- **Datenbank nur für Reservierungen (Änderung vom 25.09.2026, auf Lauras Wunsch):** Supabase-Projekt `pqunesojvlamgyhgwhqc`, Tabelle `reservations`. Besucher dürfen dort nur neue Reservierungen eintragen, nicht lesen, ändern oder löschen. Laura liest die Reservierungen im Supabase-Dashboard (Table Editor), nicht in der App. Aufbau und Rechte: `supabase/reservations.sql`. Kein Supabase-Paket, nur `fetch`.
 - **Keine neuen Programme auf dem Mac.** Node.js ist nicht installiert und wird nicht installiert. Deshalb wird alles in reinem HTML, CSS und JavaScript ohne Bibliotheken gebaut. Die Tests laufen im Browser.
 - **Fiktive Daten:** Adresse, Öffnungszeiten, Preise und E-Mail (`bonjour@chez-marguerite.example`) sind ausgedacht.
 - **Hosting:** GitHub `lauraguenin-create/chez-marguerite-app` (öffentlich) → Netlify `https://chez-marguerite.netlify.app` (öffentlich, Branch `main`)
@@ -58,6 +59,8 @@ Richtung **C „Jardin“** mit abgerundeten Kästen, angelehnt an die Stimmung 
 | `styles.css` | Aussehen | Claude |
 | `js/parse.js` | liest die Markdown-Dateien und macht daraus Einträge; blendet Abgelaufenes aus | Claude |
 | `js/actions.js` | Code kopieren, Kalenderdatei, Mail-Links | Claude |
+| `js/reservation.js` | Formular „Réserver ce bouquet“, schickt an Supabase | Claude |
+| `supabase/reservations.sql` | Aufbau und Rechte der Tabelle `reservations` (schon angewendet) | Claude |
 | `js/app.js` | lädt die Dateien, baut die Kästen, Hinweis bei Offline | Claude |
 | `sw.js` | Service Worker: frische Inhalte, Offline-Kopie | Claude |
 | `manifest.webmanifest` | macht die App installierbar | Claude |
@@ -129,7 +132,9 @@ Jeder Eintrag hat eine `Type`-Zeile: `bouquet`, `offre` oder `atelier`.
 
 **Ajouter au calendrier:** Es wird eine `.ics`-Datei erzeugt (Titel, Datum, Uhrzeit, Ort = Ladenadresse, Text) und geöffnet. Die Uhrzeiten gelten als Pariser Ortszeit (`TZID=Europe/Paris` mit passendem `VTIMEZONE`-Block). Ohne `Heure` wird ein ganztägiger Termin angelegt. Unter dem Knopf steht als Ersatz ein kleiner Link „ou Google Agenda“, weil iPhones Kalenderdateien in installierten Web-Apps nicht immer zuverlässig öffnen.
 
-**Réserver / S'abonner:** Ein `mailto:`-Link an die E-Mail aus `boutique.md` mit Betreff und Text auf Französisch, zum Beispiel Betreff „Réservation : Le Jardin d'automne“ und Text „Bonjour, je voudrais réserver le bouquet de la semaine « Le Jardin d'automne ». Nom : … Jour de retrait : …“.
+**Réserver (Strauß der Woche):** Der Knopf klappt ein Formular auf: Nom, E-mail ou téléphone, Jour de retrait (heute bis in 60 Tagen), Message (facultatif). Der Name des Straußes wird aus dem Titel der Karte genommen und mitgeschickt. Absenden schickt einen `POST` an `https://pqunesojvlamgyhgwhqc.supabase.co/rest/v1/reservations` mit dem öffentlichen Publishable Key und `Prefer: return=minimal`. Erfolg: „Merci ! Votre bouquet vous attend.“ Fehler (auch offline): Hinweis mit der E-Mail-Adresse als Ersatz. Der Service Worker darf diese Anfrage nicht abfangen oder zwischenspeichern (er behandelt nur `GET` auf der eigenen Adresse).
+
+**S'abonner:** Ein `mailto:`-Link an die E-Mail aus `boutique.md` mit Betreff und Text auf Französisch, zum Beispiel Betreff „Réservation : Le Jardin d'automne“ und Text „Bonjour, je voudrais réserver le bouquet de la semaine « Le Jardin d'automne ». Nom : … Jour de retrait : …“.
 
 **Adresse:** öffnet die Karten-App (`https://maps.apple.com/?q=…`, auf Android leitet das zu Google Maps weiter).
 
@@ -160,5 +165,6 @@ Jeder Eintrag hat eine `Type`-Zeile: `bouquet`, `offre` oder `atelier`.
 - Design-Verbesserungen (von Laura angekündigt), echte Fotos
 - Saison-Neuigkeiten
 - Mehrsprachigkeit
-- Bearbeitungsformular (CMS), Datenbank, Formulare mit Absenden (Tag 5)
+- Bearbeitungsformular (CMS), weitere Formulare mit Absenden (Tag 5)
+- Reservierungen in der App ansehen (dafür bräuchte es einen Login)
 - Push-Benachrichtigungen
